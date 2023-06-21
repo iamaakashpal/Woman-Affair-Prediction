@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Woman Affair Prediction</title>
+		<style>
+			@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+			* {
+				margin: 0;
+				padding: 0;
+				font-family: 'Poppins', sans-serif;
+			}
+
+			body {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				min-height: 100vh;
+				background: linear-gradient(45deg, #fead06, #c00def);
+			}
+
+			.container {
+				position: relative;
+				padding: 60px 200px;
+				background: #fff;
+				border-radius: 20px;
+				box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+				text-align: center;
+			}
+
+			.container h2 {
+				color: #111;
+				margin-bottom: 45px;
+				line-height: 1em;
+				font-weight: 500;
+				padding-left: 10px;
+				border-left: 5px solid #e91e63;
+				border-right: 5px solid #e91e63;
+			}
+
+			.container .inputBox {
+				position: relative;
+				width: 300px;
+				height: 46px;
+				margin-bottom: 35px;
+			}
+
+			.container .inputBox:last-child {
+				margin-bottom: 0;
+			}
+
+			.container .inputBox input {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				border: 1px solid #111;
+				background: transparent;
+				padding: 10px;
+				border-radius: 4px;
+				box-sizing: border-box;
+				outline: none;
+				font-size: 16px;
+				color: #111;
+				font-weight: 300;
+			}
+
+			.container .inputBox span {
+				position: absolute;
+				top: 1px;
+				left: 1px;
+				padding: 10px;
+				display: inline-block;
+				font-size: 16px;
+				color: #111;
+				font-weight: 300;
+				transition: 0.5s;
+				pointer-events: none;
+			}
+
+			.container .inputBox input:focus~span,
+			.container .inputBox input:valid~span {
+				transform: translateX(-10px) translateY(-32px);
+				font-size: 12px;
+			}
+
+			.container .inputBox input[type="submit"] {
+				background: #2196f3;
+				color: #fff;
+				border: none;
+				max-width: 120px;
+				cursor: pointer;
+				font-weight: 500;
+			}
+
+			.container .inputBox input[type="submit"]:hover {
+				background: #e91e63;
+			}
+
+			nav {
+				background: #111;
+				padding: 10px 40px;
+				text-align: center;
+				margin-bottom: 20px;
+				border-radius: 20px;
+			}
+
+			nav ul {
+				list-style-type: none;
+				margin: 0;
+				padding: 0;
+			}
+
+			nav ul li {
+				display: inline-block;
+				margin: 0 10px;
+			}
+
+			nav ul li a {
+				text-decoration: none;
+				color: #fff;
+				font-weight: 500;
+			}
+
+			nav ul li a:hover {
+				color: #e91e63;
+			}
+		</style>
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	</head>
+	<body>
+		<nav>
+			<ul>
+				<li><a href="https://github.com/iamaakashpal/Woman-Affair-Prediction" target="_blank" rel="noopener noreferrer">Source Code</a></li> 
+				<li><a href="https://iamaakashpal.github.io/" target="_blank" rel="noopener noreferrer">About Me</a></li>
+				<li><a href="https://www.linkedin.com/in/iamaakashpal/" target="_blank" rel="noopener noreferrer">Contact Me</a></li>
+ 
+			</ul>
+		</nav>
+		<div class="container">
+			<h2>Woman Affair Prediction&nbsp;</h2>
+			<form action="{{ url_for('predict')}}" method="post" style="height: 365px;">
+				<div class="inputBox" style="right:175px;">
+					<input type="text" name="Women Occupation" list='women_occupation' required="required">
+					<datalist id="women_occupation">
+						<option value="Student">
+						<option value="Farming / Semi-Skilled / Unskilled">
+						<option value="White Collar">
+						<option value="Teacher / Nurse / Writer / Technician / Skilled">
+						<option value="Managerial / Business">
+						<option value="Professional with Advanced Degree">
+					</datalist>
+					<span>Women Occupation</span>
+				</div>
+				<div class="inputBox" style="right:175px;">
+					<input type="text" name="Husband Occupation" list='husband_occupation' required="required">
+					<datalist id="husband_occupation">
+						<option value="Student">
+						<option value="Farming / Semi-Skilled / Unskilled">
+						<option value="White Collar">
+						<option value="Teacher / Nurse / Writer / Technician / Skilled">
+						<option value="Managerial / Business">
+						<option value="Professional with Advanced Degree">
+					</datalist>
+					<span>Husband Occupation</span>
+				</div>
+				<div class="inputBox" style="right:175px;">
+					<input type="text" name="Rate Marriage" list='rate_marriage' required="required">
+					<datalist id="rate_marriage">
+						<option value="Very Poor">
+						<option value="Poor">
+						<option value="Fair">
+						<option value="Good">
+						<option value="Very Good">
+					</datalist>
+					<span>Rate Marriage</span>
+				</div>
+				<div class="inputBox" style="right:175px;">
+					<input type="text" name="Women Age" required="required">
+					<span>Women Age</span>
+				</div>
+				<div class="inputBox" style="left:190px;top:-324px">
+					<input type="text" name="Number of years Marride" required="required">
+					<span>Number of years Marride</span>
+				</div>
+				<div class="inputBox" style="left:190px;top:-324px">
+					<input type="text" name="Number of Children" required="required">
+					<span>Number of Children</span>
+				</div>
+				<div class="inputBox" style="left:190px;top:-324px">
+					<input type="text" name="Religious" list='religious' required="required">
+					<datalist id="religious">
+						<option value="Not Religious">
+						<option value="Somewhat Religious">
+						<option value="Moderately Religious">
+						<option value="Strongly Religious">
+					</datalist>
+					<span>Religious</span>
+				</div>
+				<div class="inputBox" style="left:190px;top:-324px">
+					<input type="text" name="Education" list='education' required="required">
+					<datalist id="education">
+						<option value="Grade School">
+						<option value="High School">
+						<option value="Some College">
+						<option value="College Graduate">
+						<option value="Some Graduate School">
+						<option value="Advanced Degree">
+					</datalist>
+					<span>Education</span>
+				</div>
+				<div class="inputBox" style="right:-95px;top:-323px">
+					<input type="submit" value="Predict">
+					</br>
+					</br>
+					{{prediction_text}}
+				</div>
+            </form>
+		</div>
+	</body>
+</html>
