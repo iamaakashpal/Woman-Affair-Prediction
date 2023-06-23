@@ -46,6 +46,16 @@ scikit-learn
 matplotlib
 ```
 
+# Technical Aspects : 
+
+
+- **`Front End`** **:** HTML5, CSS
+
+- **`Back End`** **:** Python
+
+- **`Deployment`** **:** railway.app
+
+
 # Usage
 To use this code and dataset, follow these steps
     
